@@ -1,0 +1,39 @@
+.message {
+  border: 1px solid #d0d0d0;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #630404;
+  text-align: center; 
+  max-width: 600px;
+  margin: 10px auto; 
+}
+
+.message-notice {
+  background-color: #bd9993;
+  border-color: #753724;
+}
+
+.message-alert {
+  background-color: #ffd2d2;
+  border-color: #d00000;
+}
+
+
+
+
+
+/* .message {
+  border: 1px solid #d0d0d0;
+  padding: 10px 15px;
+}
+
+.message-notice {
+    background-color: #ffeec2;
+    border-color: #ffba08;
+}
+
+.message-alert {
+    background-color: #ffd2d2;
+    border-color: #d00000;
+}*\
