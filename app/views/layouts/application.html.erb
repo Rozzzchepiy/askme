@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Askme " %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="wrapper">
+  
+    <div class="navbar">
+    <p class="tittle-sm text-bold"><%= link_to "Ask me!", root_path %> </p>
+    <div>
+    <% if current_user.present? %>
+    <%= content_tag 'span', "#{current_user.email}", class: 'sm'%>
+    <%=  link_to 'Змінити профіль', edit_user_registration_path, class: "button button-main" %>
+    <%=  button_to 'Вихід', destroy_user_session_path, method: :delete, data: { confirm: 'Ви впевнені, що хочете вийти?' }, class: 'button button-main' %>
+    
+    <% end %>
+    </div>
+    </div>
+      <% flash.each do |key, message| %>
+        <p class="mb mt message message-<%= key %>"><%= message %></p>
+      <% end %>
+
+      <%= yield %>
+    </div>
+  </body>
+</html>

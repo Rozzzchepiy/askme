@@ -1,0 +1,33 @@
+.question-item {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .question-footer {
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+  }
+  .questions-summary {
+    background-color: #f7f9fc; /* Ніжний фон */
+    border: 1px solid #d1d9e6; /* Легка рамка */
+    border-radius: 8px; /* Згладжені кути */
+    padding: 20px; /* Відступи всередині блоку */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легка тінь */
+    font-family: 'Arial', sans-serif; /* Звичайний шрифт */
+    margin-bottom: 20px; /* Відступ між блоками */
+}
+  
+
+
+
+/*.question-footer {
+    border-top: 1px solid #e0e0e0; 
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}*\

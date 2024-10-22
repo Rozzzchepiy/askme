@@ -1,0 +1,21 @@
+<div class="mt-sm">
+  
+  <div><h1><%= question.user_id%><br> </h1></div>  
+ 
+  <p class="mb-lg">
+  <div class="mb-lg"><%= question.body %></div>  
+  </p>
+</div>
+
+<div class="text-sm question-footer">
+  <div class="text-grey">
+    <%= l(question.created_at, format: :short) %>
+  </div>
+
+  <div style="float: right;"> 
+    <%= link_to fa_icon('pencil'), edit_question_path(question), 
+        title: 'Edit the question' %> 
+    <%= button_to fa_icon('trash-o'), question_path(question), 
+        method: :delete, title: 'Delete the question' %>
+  </div>
+</div>

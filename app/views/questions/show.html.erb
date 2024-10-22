@@ -1,0 +1,16 @@
+<div class="container">
+  <h2 class="title-lg mb"> Question <%= @question.id %></h2>
+
+  <%= render 'question', question: @question %>
+
+  <p class="mt"><%= link_to "All questions", questions_path %> </p>
+
+  <% if @question.answers.any? %>
+    <h3>Існуючі відповіді:</h3>
+    <% @question.answers.each do |answer| %>
+      <p><%= answer.content %></p>
+    <% end %>
+  <% else %>
+    <p>Немає відповідей на це питання.</p>
+  <% end %>
+</div>

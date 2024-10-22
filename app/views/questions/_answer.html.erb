@@ -1,0 +1,20 @@
+<div class="mt-sm">
+  <div class="mb-lg"><%= answer.content %></div>  
+  <div>Користувач: <%= answer.user_id %></div>  
+</div>
+
+<div class="text-sm answer-footer">
+  <div class="text-grey">
+    <%= l(answer.created_at, format: :short) %>
+  </div>
+
+  <div style="float: right;"> 
+    <!-- Посилання для редагування відповіді -->
+    <%= link_to fa_icon('pencil'), edit_question_answer_path(answer.question, answer), 
+        title: 'Редагувати відповідь' %> 
+    
+    <!-- Кнопка для видалення відповіді -->
+    <%= button_to fa_icon('trash-o'), question_answer_path(answer.question, answer), 
+        method: :delete, title: 'Видалити відповідь' %>
+  </div>
+</div>
