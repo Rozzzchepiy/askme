@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   resources :questions do
     resources :answers, only: [ :create, :edit, :update, :destroy ]
   end
-
+  resources :answers
   devise_for :users, controllers: { sessions: "users/sessions" }
 end

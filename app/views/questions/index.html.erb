@@ -1,52 +1,49 @@
+<div class="header">
+  <h1>Питання</h1>
+  <%= link_to "Create new question", new_question_path, class: 'button button-main' %>
+</div>
 
-  <div class="header">
-    <h1>Питання</h1>
-    <%= link_to "Create new question", new_question_path, class: 'button button-main' %>
-  </div>
+<div class="container">
+  <%= render "form", question: @question %>
+</div>
 
-  <div class="container">
-    <%= render "form", question: @question %>
-  </div>
+<div class="questions-summary">
+  <h2 class="title-lg mb-sm">
+    <%= @questions.count %> <%= inclination(@questions.count, 'питання:', 'питання:', 'питань:') %>
+  </h2>
+</div>
 
-  <div class="questions-summary">
-    <h2 class="title-lg mb-sm">
-      <%= @questions.count %> <%= inclination(@questions.count, 'питання:', 'питання:', 'питань:') %>
-    </h2>
-  </div>
-
-  <div class="questions-item mb-lg">
-    
-    <% @questions.each do |question| %>
+<div class="questions-item mb-lg">
+  <% @questions.each do |question| %>
     <div class="question-container">
       <%= render question %>
     </div>
-      <div class="questions-list mb-sm">
-        <!-- Виведення відповідей до питання -->
-        <h3 class="mb ">Відповіді:</h3>
-     
-          <% question.answers.each do |answer| %>
-            <div class="answer-container">
-              <%= render 'answer', answer: answer %>
-            </div>
-          <% end %>
-       
+    <div class="questions-list mb-sm">
+      <!-- Виведення відповідей до питання -->
+      <h3 class="mb">Відповіді:</h3>
+      <% question.answers.each do |answer| %>
+        <div class="answer-container">
+          <%= render 'answer', answer: answer %>
+        </div>
+      <% end %>
 
-        <!-- Форма для нової відповіді -->
-        <%= form_with(model: [ question, question.answers.build ], local: true) do |form| %>
-          <p class="mb">
-            <%= form.label :user_id, "Ваше ім'я" %><br>
-            <%= form.text_area :user_id, rows: 1, class: 'form-text-area' %>
-          </p>
+      <!-- Форма для нової відповіді -->
+      <%= form_with(model: [question, question.answers.build], local: true) do |form| %>
+        <p class="mb">
+          <h1 class="mb">Додати відповідь: </h1>
+          <%= form.label :user_id, "Ваше ім'я" %><br>
+          <%= form.text_area :user_id, rows: 1, class: 'form-text-area' %>
+        </p>
 
-          <p class="mb">
-            <%= form.label :content, "Текст відповіді" %><br>
-            <%= form.text_area :content, rows: 5, class: 'form-text-area' %>
-          </p>
+        <p class="mb">
+          <%= form.label :content, "Текст відповіді" %><br>
+          <%= form.text_area :content, rows: 5, class: 'form-text-area' %>
+        </p>
 
-          <p>
-            <%= form.submit "Відповісти", class: 'button button-main' %>
-          </p>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+        <p>
+          <%= form.submit "Відповісти", class: 'button button-main' %>
+        </p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

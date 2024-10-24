@@ -17,7 +17,7 @@ class AnswersController < ApplicationController
   def update
     @answer = Answer.find(params[:id])
     if @answer.update(answer_params)
-      redirect_to question_path(@answer.question), notice: "Відповідь оновлено."
+      redirect_to @answer.question, notice: "Відповідь оновлено."
     else
       render :edit
     end
